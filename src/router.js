@@ -28,7 +28,7 @@ const routes = [
     component: loadPage('ProfilePage')
   },
   {
-    path: '/post',
+    path: '/post/:postId',
     name: 'Post',
     component: loadPage('PostPage')
   },
