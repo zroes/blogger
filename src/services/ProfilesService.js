@@ -6,6 +6,7 @@ import { Profile } from "../models/Account.js"
 class ProfilesService {
 
   async getProfileById(profileId) {
+    AppState.profile = null
     const res = await api.get('api/profiles/' + profileId)
     logger.log('[Getting profile from api]', res.data)
     AppState.profile = new Profile(res.data)
