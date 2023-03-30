@@ -1,17 +1,19 @@
 <template>
   <div class="container-fluid">
     <section class="row">
-      <div class="col-12">
-
+      <div class="col-10 border border-black rounded elevation" v-for="p in posts" :key="p.id">
+        <PostComponent :post="p" />
       </div>
     </section>
   </div>
 </template>
 
-<script lang="js">
-import { onMounted } from 'vue'
+<script>
+import { onMounted, computed } from 'vue'
 import { logger } from '../utils/Logger.js'
 import { postsService } from '../services/PostsService.js'
+import { AppState } from '../AppState.js'
+import PostComponent from '../components/PostComponent.vue'
 export default {
   setup() {
     async function getPosts() {
@@ -26,8 +28,11 @@ export default {
     onMounted(() => {
       getPosts()
     })
-    return {}
-  }
+    return {
+      posts: computed(() => AppState.posts)
+    }
+  },
+  components: { PostComponent }
 }
 </script>
 
