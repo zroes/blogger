@@ -1,14 +1,21 @@
 <template>
     <div>
-        <router-link :to="{ name: 'Profile', params: { profileId: post?.creatorId } }">
-            <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name" :title="post?.creator.name">
-            <span class="p-2">{{ post?.creator.name }}</span>
+        <router-link>
+            <div @click.stop="goToProfile(post?.creator.id)">
+                <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name"
+                    :title="post?.creator.name">
+                <span class="p-2">{{ post?.creator.name }}</span>
+            </div>
+            <div>
+
+            </div>
         </router-link>
     </div>
 </template>
 
 
 <script>
+import { useRouter } from 'vue-router';
 import { Post } from '../models/Post.js';
 
 export default {
@@ -18,8 +25,13 @@ export default {
             required: true
         }
     },
-    setup() {
-        return {}
+    setup(props) {
+        const router = useRouter();
+        return {
+            goToProfile() {
+                router.push({ name: 'Profile', params: { profileId: props.post.creatorId } })
+            }
+        }
     }
 }
 </script>
