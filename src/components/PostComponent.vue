@@ -1,9 +1,11 @@
 <template>
     <section class="row">
-
-        <div class="col-8" @click.stop="goToProfile(post?.creator.id)">
-            <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name" :title="post?.creator.name">
-            <span class="p-2">{{ post?.creator.name }}</span>
+        <div class="col-8">
+            <div @click.stop="goToProfile(post?.creator.id)">
+                <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name"
+                    :title="post?.creator.name">
+                <span class="p-2">{{ post?.creator.name }}</span>
+            </div>
             <router-link class="d-flex p-2" :to="{ name: 'Post', params: { postId: post?.id } }">
                 <div>
                     <p>{{ post?.title }}</p>
