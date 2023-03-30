@@ -1,14 +1,19 @@
 <template>
-    <router-link :to="{ name: 'Post', params: { postId: post?.id } }">
+    <section class="row">
 
-        <div @click.stop="goToProfile(post?.creator.id)">
+        <div class="col-8" @click.stop="goToProfile(post?.creator.id)">
             <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name" :title="post?.creator.name">
             <span class="p-2">{{ post?.creator.name }}</span>
+            <router-link class="d-flex p-2" :to="{ name: 'Post', params: { postId: post?.id } }">
+                <div>
+                    <p>{{ post?.title }}</p>
+                    <p>{{ post?.truncated }}</p>
+                </div>
+            </router-link>
         </div>
-        <div>
-            <p>{{ post?.title }}</p>
-        </div>
-    </router-link>
+
+        <div class="col-4 p-2 text-end"><img class="post-img rounded" :src="post?.imgUrl" :alt="post?.title"></div>
+    </section>
 </template>
 
 
@@ -41,5 +46,10 @@ export default {
     width: 10vh;
     border-radius: 50%;
 
+}
+
+.post-img {
+    height: 20vh;
+    width: auto;
 }
 </style>

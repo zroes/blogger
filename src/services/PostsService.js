@@ -5,9 +5,9 @@ import { api } from "./AxiosService.js"
 
 class PostsService {
     async getPosts() {
-        const res = await api.get('api/posts')
-        logger.log(res.data.posts)
-        AppState.posts = res.data.posts.map(p => new Post(p))
+        const res = await api.get('api/blogs')
+        logger.log(res.data)
+        AppState.posts = res.data.map(p => new Post(p))
     }
 }
 

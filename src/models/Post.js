@@ -10,7 +10,13 @@ export class Post {
         this.createdAt = data.createdAt
         this.likes = data.likes
         this.tags = data.tags
+        this.truncated = this.ComputeTruncated
         this.creator = new Profile(data.creator)
+    }
+
+    get ComputeTruncated() {
+        const truncatedBody = this.body.slice(0, 61) + "...."
+        return truncatedBody
     }
 }
 
