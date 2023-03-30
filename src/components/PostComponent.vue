@@ -1,16 +1,14 @@
 <template>
-    <div>
-        <router-link>
-            <div @click.stop="goToProfile(post?.creator.id)">
-                <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name"
-                    :title="post?.creator.name">
-                <span class="p-2">{{ post?.creator.name }}</span>
-            </div>
-            <div>
+    <router-link :to="{ name: 'Post', params: { postId: post?.postId } }">
 
-            </div>
-        </router-link>
-    </div>
+        <div @click.stop="goToProfile(post?.creator.id)">
+            <img class="p-2 profile-img" :src="post?.creator.picture" :alt="post?.creator.name" :title="post?.creator.name">
+            <span class="p-2">{{ post?.creator.name }}</span>
+        </div>
+        <div>
+            <p>{{ post?.title }}</p>
+        </div>
+    </router-link>
 </template>
 
 
