@@ -60,8 +60,8 @@ export default {
   width: 17vh;
   object-fit: cover;
   border-radius: 42%;
-  border: solid 4px rgba(255, 255, 255, 0.303);
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.475);
+  border: solid 1px rgba(20, 20, 20, 0.29);
+  box-shadow: 0px 0px 10px rgba(42, 42, 42, 0.515);
 }
 
 .cover-img {
@@ -77,6 +77,6 @@ export default {
 
 .text {
   color: aliceblue;
-  text-shadow: 0px 0px 10px black;
+  text-shadow: 3px 2px 7px black, 0px 2px 8px black;
 }
 </style>
