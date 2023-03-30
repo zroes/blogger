@@ -6,7 +6,7 @@
                     :title="post?.creator.name">
                 <span class="p-2">{{ post?.creator.name }}</span>
             </div>
-            <router-link class="d-flex p-2" :to="{ name: 'Post', params: { postId: post?.id } }">
+            <router-link class="d-flex px-5 py-2" :to="{ name: 'Post', params: { postId: post?.id } }">
                 <div>
                     <p>{{ post?.title }}</p>
                     <p>{{ post?.truncated }}</p>
@@ -14,7 +14,11 @@
             </router-link>
         </div>
 
-        <div class="col-4 p-2 text-end"><img class="post-img rounded" :src="post?.imgUrl" :alt="post?.title"></div>
+        <div class="col-4 text-end p-2">
+            <div class="overflow">
+                <img class="post-img rounded" :src="post?.imgUrl" :alt="post?.title">
+            </div>
+        </div>
     </section>
 </template>
 
@@ -53,5 +57,11 @@ export default {
 .post-img {
     height: 20vh;
     width: auto;
+    // object-fit: contain;
+
+}
+
+.overflow {
+    overflow: hidden;
 }
 </style>
