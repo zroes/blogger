@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <section class="row">
-      <div class="col-10 border border-black rounded elevation" v-for="p in posts" :key="p.id">
+    <section class="row justify-content-center">
+      <div class="col-10 custom-border rounded elevation my-2" v-for="p in posts" :key="p.id">
         <PostComponent :post="p" />
       </div>
     </section>
@@ -55,5 +55,9 @@ export default {
       object-position: center;
     }
   }
+}
+
+.custom-border {
+  border: solid 3px black;
 }
 </style>
