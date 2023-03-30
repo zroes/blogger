@@ -11,11 +11,12 @@
 <script lang="js">
 import { onMounted } from 'vue'
 import { logger } from '../utils/Logger.js'
+import { postsService } from '../services/PostsService.js'
 export default {
   setup() {
-    function getPosts() {
+    async function getPosts() {
       try {
-        await
+        await postsService.getPosts()
       }
       catch (error) {
         logger.log(error)
