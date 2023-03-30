@@ -1,6 +1,21 @@
 <template>
-  <h1>Hello from the Profile Page</h1>
-  {{ profile?.bio }}
+  <div class="container-fluid">
+    <section class="row">
+      <div class="p-0 position-absolute">
+        <img class="cover-img" :src="profile?.coverImg" alt="">
+      </div>
+      <div class="m-5 d-flex position-relative">
+        <img class="profile-picture" :src="profile?.picture" alt="">
+
+        <h1 class="text ms-5 mb-5 align-self-center">{{ profile?.name }}</h1>
+      </div>
+      <div class="col-6 position-relative bio">
+        <h5 class="text ">{{ profile?.bio }}</h5>
+      </div>
+
+
+    </section>
+  </div>
 </template>
 
 <script>
@@ -39,4 +54,29 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.profile-picture {
+  height: 17vh;
+  width: 17vh;
+  object-fit: cover;
+  border-radius: 42%;
+  border: solid 4px rgba(255, 255, 255, 0.303);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.475);
+}
+
+.cover-img {
+  height: 55vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.bio {
+  bottom: 6vw;
+  left: 25%;
+}
+
+.text {
+  color: aliceblue;
+  text-shadow: 0px 0px 10px black;
+}
+</style>
