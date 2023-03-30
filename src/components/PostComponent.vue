@@ -9,7 +9,6 @@
 
 
 <script>
-import { profile } from 'console';
 import { Post } from '../models/Post.js';
 
 export default {
